@@ -89,7 +89,6 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-		unityInstance.SendMessage('GameManager', 'SetMobileControls');
 		//console.log("mobile Controls");
 
       } else {
@@ -117,6 +116,23 @@
             };
 
       document.body.appendChild(script);
+	  
+	  		window.addEventListener('message', function(event) {
+			if (event.data === 'isMobile') {
+                // Handle game completion
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
+				{
+					console.log('MobileBrowser');
+					unityInstance.SendMessage('GameManager', 'SetMobileControls');
+				}
+				else
+				{
+				    console.log('WebBrowser');
+				}
+            }
+
+        });
+
 
     </script>
   </body>
