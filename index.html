@@ -126,12 +126,12 @@
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
 				{
 					console.log('MobileBrowser');
-					unityInstances.SendMessage('GameManager', 'SetMobileControls');
+					unityInstance.SendMessage('GameManager', 'SetMobileControls');
 				}
 				else
 				{
 				    console.log('WebBrowser');
-					unityInstances.SendMessage('GameManager', 'SetMobileControls');
+					unityInstance.SendMessage('GameManager', 'SetMobileControls');
 				}
             }
 
