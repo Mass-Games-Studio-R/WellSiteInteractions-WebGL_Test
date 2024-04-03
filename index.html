@@ -120,15 +120,18 @@
 	  		window.addEventListener('message', function(event) {
 			if (event.data === 'isMobile') {
                 // Handle game completion
+				
+
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
 				{
 					console.log('MobileBrowser');
-					unityInstance.SendMessage('GameManager', 'SetMobileControls');
+					var unityInstances = UnityLoader.instantiate("unityContainer", "Build/Build.json", config);
+					unityInstances.SendMessage('GameManager', 'SetMobileControls');
 				}
 				else
 				{
 				    console.log('WebBrowser');
-					unityInstance.SendMessage('GameManager', 'SetMobileControls');
+					unityInstances.SendMessage('GameManager', 'SetMobileControls');
 				}
             }
 
