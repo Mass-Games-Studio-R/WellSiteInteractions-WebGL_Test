@@ -7,6 +7,36 @@
 
 <iframe src="https://mass-games-studio-r.github.io/WellSiteInteractions-WebGL/" height="400" width="600" title="Iframe Example"></iframe>
 
+    <script>
+	
+		  		window.addEventListener('message', function(event) {
+			if (event.data === 'isMobile') {
+                // Handle game completion
+
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
+				{
+					console.log('MobileBrowser');
+				}
+				else
+				{
+				    console.log('WebBrowser');
+				}
+				
+				if (event.data === 'gameCompleted') {
+                // Handle game completion
+                console.log('Game has completed!');
+
+            }
+
+            }
+
+        });
+
+	
+    </script>
+
+
+
 </body>
 </html>
 
