@@ -2,41 +2,20 @@
 <html>
 <body>
 
-<h2>HTML Iframes</h2>
-<p>You can use the height and width attributes to specify the size of the iframe:</p>
-
-<iframe src="https://mass-games-studio-r.github.io/WellSiteInteractions-WebGL/" height="400" width="600" title="Iframe Example"></iframe>
+<iframe id="unityIframe" src="https://mass-games-studio-r.github.io/WellSiteInteractions-WebGL/" height="400" width="600" title="Iframe Example"></iframe>
 
     <script>
 	
-		  		window.addEventListener('message', function(event) {
-			if (event.data === 'isMobile') {
-                // Handle game completion
-
-				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
-				{
-					console.log('MobileBrowser Main');
-				}
-				else
-				{
-				    console.log('WebBrowser Main');
-					var iframe = document.querySelector('iframe');
-					// Check if the iframe exists
-					if (iframe) {
-						// Call the function defined in the iframe index file
-						console.log('WebBrowser Main iframe');
-						
-						iframe.contentWindow.functionInIframe();
-					}
-				}
-				
-
-            }
-			else if (event.data === 'gameCompleted') {
-			// Handle game completion
-			console.log('Game has completed!');
-
-            }
+		window.addEventListener('message', function(event) 
+		{
+			var iframe = document.getElementById('unityIframe');
+			// Check if the iframe exists
+			if (iframe) 
+			{
+				// Call the function defined in the iframe index file
+				console.log('iframe accessed');
+				iframe.contentWindow.postMessage(event.data, '*');
+			}
 
         });
 
