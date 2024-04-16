@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<iframe id="unityIframe" src="https://mass-games-studio-r.github.io/WellSiteInteractions-WebGL/" height="600" width="900" title="Iframe Example"></iframe>
+
+    <script>
+	
+		window.addEventListener('message', function(event) 
+		{
+			var iframe = document.getElementById('unityIframe');
+			// Check if the iframe exists
+			if (iframe) 
+			{
+				// Call the function defined in the iframe index file
+				console.log('iframe accessed');
+				iframe.contentWindow.postMessage(event.data, '*');
+			}
+
+        });
+
+	
+    </script>
+
+
+
+</body>
+</html>
+
