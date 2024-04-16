@@ -20,6 +20,14 @@
 				else
 				{
 				    console.log('WebBrowser Main');
+					var iframe = document.querySelector('iframe');
+					// Check if the iframe exists
+					if (iframe) {
+						// Call the function defined in the iframe index file
+						console.log('WebBrowser Main iframe');
+						
+						iframe.contentWindow.functionInIframe();
+					}
 				}
 				
 
